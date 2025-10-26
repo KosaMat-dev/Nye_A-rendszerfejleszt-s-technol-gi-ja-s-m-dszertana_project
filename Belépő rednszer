@@ -1,0 +1,18 @@
+Belépő rednszer weben
+Követelmények:
+-Ha regisztráltam a weben akkor betudjak jelentkezni.
+-ha rossz felhasználó/jelszót adtam meg hiba üzenetet tüntessen fel.
+
+
+
+
+
+Nem funnkciónális követelmények:
+-1mp alatt lenne a megfelelő hogy ha betöltödne az oldal.
+-A rednszer legyen eltisztült és nem túlbonyolult.
+
+Fogalomtár:
+-Home
+-Navigation bar
+-Header
+-Footer
