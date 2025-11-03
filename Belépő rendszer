@@ -1,13 +1,13 @@
 Belépő rendszer weben
 Követelmények:
--Ha regisztráltam a weben akkor betudjak jelentkezni.
--ha rossz felhasználó/jelszót adtam meg hiba üzenetet tüntessen fel.
+-Ellenőrizze a felhasználó jogosultságát, és azszerint jelenítse meg a felületet.
+-Ha rossz felhasználó/jelszót adtam meg hiba üzenetet tüntessen fel.
 
 
 
 
 
-Nem funnkciónális követelmények:
+Nem funkcionális követelmények:
 -1mp alatt lenne a megfelelő hogy ha betöltödne az oldal.
 -A rednszer legyen eltisztült és nem túlbonyolult.
 
