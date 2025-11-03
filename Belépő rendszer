@@ -1,4 +1,4 @@
-Belépő rendszer weben
+Belépő rendszer weben jogosultságkezeléssel
 Követelmények:
 -Ellenőrizze a felhasználó jogosultságát, és azszerint jelenítse meg a felületet.
 -Ha rossz felhasználó/jelszót adtam meg hiba üzenetet tüntessen fel.
@@ -9,7 +9,7 @@ Követelmények:
 
 Nem funkcionális követelmények:
 -1mp alatt lenne a megfelelő hogy ha betöltödne az oldal.
--A rednszer legyen eltisztült és nem túlbonyolult.
+-A rednszer legyen letisztult és nem túl bonyolult.
 
 Fogalomtár:
 -Home
