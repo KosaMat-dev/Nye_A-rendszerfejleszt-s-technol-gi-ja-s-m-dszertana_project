@@ -1,1 +1,79 @@
+Funkcionális Követelmények
+Szerző: Dávid
 
+ID: F-01
+
+Cím: Felhasználói bejelentkezés
+
+Leírás (User Story): Mint Felhasználó, azt szeretném, hogy bejelentkezhessek a felhasználónevemmel és jelszavammal, annak érdekében, hogy hozzáférhessek a személyre szabott felülethez.
+
+Elfogadási Kritériumok (Acceptance Criterias):
+
+Adott (Given) a felhasználó a bejelentkezési oldalon van, amikor (When) helyes felhasználónevet és jelszót ad meg (pl. pappd, pass), akkor (Then) a rendszer bejelentkezteti és üdvözli a nevén (Üdvözlet, Papp Dávid!).
+
+Adott a felhasználó a bejelentkezési oldalon van, amikor helytelen felhasználónevet vagy jelszót ad meg, akkor a rendszer a "Hibás felhasználónév vagy jelszó!" hibaüzenetet jeleníti meg.
+
+ID: F-02
+
+Cím: Kijelentkezés
+
+Leírás (User Story): Mint Bejelentkezett Felhasználó, azt szeretném, hogy egy 'Kijelentkezés' gombot megnyomhassak, annak érdekében, hogy biztonságosan bezárhassam a munkamenetemet.
+
+Elfogadási Kritériumok:
+
+Adott egy felhasználó be van jelentkezve, amikor megnyomja a "Kijelentkezés" gombot, akkor a rendszer megszünteti a munkamenetét (session) és visszairányítja a bejelentkezési oldalra.
+
+Szerző: Máté
+
+ID: F-03
+
+Cím: Jogosultságalapú nézet (Vezető)
+
+Leírás (User Story): Mint IT Csoportvezető, azt szeretném, hogy lássak egy űrlapot új feladatok hozzáadásához és az összes munkavállaló feladatait, annak érdekében, hogy delegálni és menedzselni tudjam a csapatot.
+
+Elfogadási Kritériumok:
+
+Adott egy 'IT Csoportvezető' be van jelentkezve (pl. pappd), amikor megnyitja az oldalt, akkor látja az "Új feladat létrehozása" űrlapot és a munkavállalók listáját.
+
+Adott egy 'IT Csoportvezető' kitölti az "Új feladat" űrlapot és kiválaszt egy munkavállalót (pl. kosam), amikor rákattint a "Feladat hozzáadása" gombra, akkor az új feladat mentésre kerül a data.json fájlba a megfelelő felhasználóhoz.
+
+ID: F-04
+
+Cím: Jogosultságalapú nézet (Munkavállaló)
+
+Leírás (User Story): Mint IT Munkavállaló, azt szeretném, hogy csak a saját, nekem kiosztott feladataimat lássam, annak érdekében, hogy fókuszálni tudjak a teendőimre.
+
+Elfogadási Kritériumok:
+
+Adott egy 'IT Munkavállaló' be van jelentkezve (pl. kosam), amikor megnyitja az oldalt, akkor egy listát lát a saját feladataival ("Szerver karbantartás", "Ticktek kezelése" stb.).
+
+Adott egy 'IT Munkavállaló' be van jelentkezve, amikor megnyitja az oldalt, akkor nem látja az "Új feladat létrehozása" űrlapot.
+
+Nem Funkcionális Követelmények
+Szerző: Dávid
+
+ID: NF-01
+
+Cím: Teljesítmény (Oldalbetöltés)
+
+Követelmény: Az oldalnak (a bejelentkezés utáni feladatlista) átlagos internetkapcsolat és szerver terhelés mellett 1 másodperc alatt be kell töltődnie. (Ahogy te is írtad a dokumentációdban).
+
+ID: NF-02
+
+Cím: Biztonság (Adatkezelés)
+
+Követelmény: A bejelentkezett felhasználó adatait (mint a jogosultság és a név) a szerveroldali PHP Session-ben kell tárolni a biztonságos azonosítás érdekében. Az érzékeny adatok (pl. jelszavak) nem jelenhetnek meg a kliensoldali HTML forráskódban.
+
+Szerző: Máté
+
+ID: NF-03
+
+Cím: Használhatóság (Usability)
+
+Követelmény: A rendszer felülete legyen letisztult, könnyen átlátható és nem túl bonyolult. A gombok és űrlapok legyenek egyértelműek. (Ahogy te is írtad, és a CSS kódod (style tag) ezt célozza).
+
+ID: NF-04
+
+Cím: Hordozhatóság (Reszponzivitás)
+
+Követelmény: Az alkalmazásnak használhatónak kell lennie asztali számítógépen (széles képernyő) és modern okostelefonok böngészőjében (keskeny képernyő) egyaránt. (A kódodban lévő viewport meta tag és a max-width: 800px CSS ezt segíti).
