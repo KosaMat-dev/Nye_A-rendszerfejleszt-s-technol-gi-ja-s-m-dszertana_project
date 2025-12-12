@@ -1,0 +1,147 @@
+================================================================================
+PROJEKT ADATLAP
+================================================================================
+
+Csapat: Papp Dávid, Kósa Máté
+Projekt címe: Feladatkezelő és Bejelentkező Rendszer
+
+--------------------------------------------------------------------------------
+ELÉRHETŐSÉGEK ÉS HIVATKOZÁSOK
+--------------------------------------------------------------------------------
+
+| Megnevezés | Link / Elérhetőség |
+| :--- | :--- |
+| GitHub Repository URL | [https://github.com/KosaMat-dev/Nye_A-rendszerfejleszt-s-technol-gi-ja-s-m-dszertana_project] |
+| Feladatok megoldása (Docs mappa) | /docs |
+| Egységtesztek (Test mappa) | /src/test |
+| UI Tervek | /docs/UI |
+| UML Diagramok | /docs/UML |
+
+--------------------------------------------------------------------------------
+FORRÁSMEGJELÖLÉS ÉS AI NYILATKOZAT
+--------------------------------------------------------------------------------
+
+A fejlesztés során az alábbi forrásokat és eszközöket használtuk:
+
+1. Mesterséges Intelligencia (AI) használata:
+   - Modell: Gemini PRO
+   - Felhasználás célja: Kódrészletek generálása (Java Unit tesztek váza), hibakeresés, dokumentáció sablon.
+   - Példa prompt: "Készíts JUnit 5 tesztesetet egy Java LoginManager osztályhoz, amely ellenőrzi a hibás jelszó dobott kivételt."
+
+2. Egyéb források:
+   - StackOverflow (kivételkezelés Java-ban)
+   - JUnit 5 hivatalos dokumentáció (https://junit.org/junit5/docs/current/user-guide/)
+   - Draw.io (diagramok készítéséhez)
+
+================================================================================
+1. FELADAT: KÖVETELMÉNYSPECIFIKÁCIÓ
+================================================================================
+
+--------------------------------------------------------------------------------
+FUNKCIONÁLIS KÖVETELMÉNYEK (Functional Requirements)
+--------------------------------------------------------------------------------
+
+Szerző: Papp Dávid
+------------------
+ID: F-01
+Cím: Felhasználói bejelentkezés
+Leírás (User Story): Mint Felhasználó, azt szeretném, hogy bejelentkezhessek a felhasználónevemmel és jelszavammal, annak érdekében, hogy hozzáférhessek a személyre szabott felülethez.
+Elfogadási Kritériumok (Acceptance Criteria):
+- Given (Adott): A felhasználó a bejelentkezési oldalon van.
+- When (Amikor): Helyes felhasználónevet és jelszót ad meg (pl. pappd, pass).
+- Then (Akkor): A rendszer bejelentkezteti és üdvözli a nevén (Üdvözlet, Papp Dávid!).
+- Given (Adott): A felhasználó a bejelentkezési oldalon van.
+- When (Amikor): Helytelen felhasználónevet vagy jelszót ad meg.
+- Then (Akkor): A rendszer a "Hibás felhasználónév vagy jelszó!" hibaüzenetet jeleníti meg.
+
+ID: F-02
+Cím: Kijelentkezés
+Leírás (User Story): Mint Bejelentkezett Felhasználó, azt szeretném, hogy egy 'Kijelentkezés' gombot megnyomhassak, annak érdekében, hogy biztonságosan bezárhassam a munkamenetemet.
+Elfogadási Kritériumok (Acceptance Criteria):
+- Given (Adott): A felhasználó be van jelentkezve.
+- When (Amikor): Megnyomja a "Kijelentkezés" gombot.
+- Then (Akkor): A rendszer megszünteti a munkamenetét (session) és visszairányítja a bejelentkező képernyőre.
+
+Szerző: Kósa Máté
+------------------
+ID: F-03
+Cím: Új feladat hozzáadása (TaskManager)
+Leírás (User Story): Mint Felhasználó, azt szeretném, hogy új teendőket tudjak felvenni a listámra, annak érdekében, hogy nyomon követhessem az elvégzendő munkáimat.
+Elfogadási Kritériumok (Acceptance Criteria):
+- Given (Adott): A felhasználó be van jelentkezve és a feladatkezelő felületen van.
+- When (Amikor): Beír egy feladatot a szövegmezőbe (pl. "Tejet venni") és megnyomja a "Hozzáadás" gombot.
+- Then (Akkor): Az új feladat megjelenik a feladatlistában.
+
+ID: F-04
+Cím: Feladatok listázása
+Leírás (User Story): Mint Felhasználó, azt szeretném, hogy lássam az összes korábban rögzített feladatomat, annak érdekében, hogy áttekinthessem a teendőimet.
+Elfogadási Kritériumok (Acceptance Criteria):
+- Given (Adott): A felhasználónak vannak rögzített feladatai.
+- When (Amikor): Megnyitja az alkalmazást vagy frissíti az oldalt.
+- Then (Akkor): A rendszer kilistázza az összes tárolt feladatot sorrendben.
+
+--------------------------------------------------------------------------------
+NEM FUNKCIONÁLIS KÖVETELMÉNYEK (Non-functional Requirements)
+--------------------------------------------------------------------------------
+
+Szerző: Kósa Máté
+------------------
+ID: NF-01
+Cím: Teljesítmény (Performance)
+Követelmény: Az oldal betöltési idejének (bejelentkezés utáni feladatlista) átlagos internetkapcsolat és szerver terhelés mellett 1 másodperc alattinak kell lennie.
+
+ID: NF-02
+Cím: Biztonság (Security)
+Követelmény: A bejelentkezett felhasználó adatait (mint a jogosultság és a név) a szerveroldali (pl. PHP Session vagy Java Session) memóriában kell tárolni. Jelszavakat tilos nyílt szövegként tárolni vagy naplózni.
+
+Szerző: Papp Dávid
+------------------
+ID: NF-03
+Cím: Használhatóság (Usability)
+Követelmény: A rendszer felülete legyen letisztult (Minimal Design). A "Hozzáadás" és "Kijelentkezés" gomboknak vizuálisan jól elkülöníthetőnek kell lenniük (pl. eltérő szín).
+
+ID: NF-04
+Cím: Hordozhatóság (Portability)
+Követelmény: Az alkalmazásnak platformfüggetlennek kell lennie kliens oldalon; működnie kell a leggyakoribb böngészők (Chrome, Firefox, Edge) legfrissebb verzióiban asztali és mobil nézetben is.
+
+--------------------------------------------------------------------------------
+HASZNÁLT TERMINOLÓGIA ÉS FOGALOMTÁR
+--------------------------------------------------------------------------------
+
+Szerző: Papp Dávid
+------------------
+Kifejezés: Header (Fejléc)
+Magyarázat: A weboldal tetején, minden oldalon egységesen megjelenő sáv. Általában itt található a weboldal logója, címe, és a navigációs menü vagy a kijelentkezés gomb.
+
+Szerző: Kósa Máté
+------------------
+Kifejezés: Session (Munkamenet)
+Magyarázat: A szerver és a kliens közötti folyamatos kapcsolatot biztosító technológia. Lehetővé teszi, hogy a rendszer "emlékezzen" a bejelentkezett felhasználóra az oldalfrissítések között anélkül, hogy minden kattintásnál újra be kellene jelentkezni.
+
+================================================================================
+2-5. FELADAT: MODELLEK ÉS TERVEK HIVATKOZÁSAI
+================================================================================
+
+A diagramok képfájljai a repository `docs/UML` és `docs/UI` mappáiban találhatók.
+
+UML Modellek (docs/UML mappa):
+- Use Case diagram: `usecase_diagram.png` 
+- Activity diagram: `activity_diagram.png` 
+- Sequence diagram: `sequence_diagram.png` 
+- ER modell: `er_model.png` 
+- Osztálydiagram: `class_diagram.jpg`
+
+UI Tervek (docs/UI mappa):
+- Dávid terve: `David fix.jpg`
+- Máté terve: `Kósa UI.jpg`
+
+================================================================================
+7. FELADAT: TESZTEK
+================================================================================
+
+Az egységtesztek a `src/test` mappában találhatók.
+Keretrendszer: JUnit 5
+
+Tesztfájlok:
+1. LoginManagerTest.java (Bejelentkezés logikájának tesztelése: helyes/helytelen jelszó)
+2. TaskManagerTest.java (Feladatkezelés tesztelése: hozzáadás, listázás)
